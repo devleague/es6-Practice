@@ -121,18 +121,29 @@ describe('spread with arrays', () => {
     assert.deepEqual(rest, [3, 4, 5]);
   });
 
+<<<<<<< HEAD
   it('spreading into the rest', () => {
     const [...rest] = [...[,1, 2, 3, 4, 5]];
+=======
+  it('spreading into the rest', function() {
+    const [...rest] = [...[1, 2, 3, 4, 5]];
+>>>>>>> master
     assert.deepEqual(rest, [1, 2, 3, 4, 5]);
   });
 
   describe('used as function parameter', () => {
+<<<<<<< HEAD
     it('prefix with `...` to spread as function params', () => {
+=======
+    it('prefix with `...` to spread as function arguments', function() {
+>>>>>>> master
       const magicNumbers = [1, 2];
+
       const fn = (magicA, magicB) => {
         assert.deepEqual(magicNumbers[0], magicA);
         assert.deepEqual(magicNumbers[1], magicB);
       };
+
       fn(magicNumbers);
     });
 
@@ -313,6 +324,37 @@ describe('destructuring arrays makes shorter code', () => {
   it('in for-of loop', () => {
     for (var [a, b] of [[0, 1, 2]]) {}
     assert.deepEqual([a, b], [1, 2]);
+  });
+});
+
+// destructuring objects
+//
+// docs: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
+describe('destructure assignment from objects also makes shorter', () => {
+  it('use destructure assignments to "pluck" values by their property name from an object literal', () => {
+    const person = { name: 'Bilbo', surname: 'Fragginz' };
+
+    const {} = person; // only work on this line
+
+    assert.equals(name, 'Bilbo');
+    assert.equals(surname, 'Fragginz');
+  });
+
+  it('...you can still rename your destructuring assignments, re-alias `name` and `surname`', () => {
+    const person = { name: 'Bilbo', surname: 'Fragginz' };
+
+    const { name, surname } = person; // only work on this line, don't delete `name` or `surname`
+
+    assert.equal(hobbitName, 'Bilbo');
+    assert.equal(lastName, 'Fragginz');
+  });
+
+  it('destructuring inception: destructure while descturing and then re-alias it as `favoriteNephew`', () => {
+    const person = { name: 'Bilbo', surname: 'Fragginz', nephew: { name: 'Frodo' } };
+
+    const {} = person; // only work on this line
+
+    assert.deepEqual(favoriteNephew, 'Frodo');
   });
 });
 
