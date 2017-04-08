@@ -316,6 +316,53 @@ describe('destructuring arrays makes shorter code', () => {
   });
 });
 
+// destructuring assignment - mini boss
+describe.only('Destructuring - Miniboss', () => {
+  it('An Array inside of an Object, inside of yet another Object', () => {
+    const xhrRequest = {
+      body: {
+        messages: ['I would totally buy this product!', 'What is this anyway?!', 'YAYAYAYYA \o/!!!']
+      }
+    };
+
+    const changeMeOnly = xhrRequest; // only do work here
+
+    assert.equal(firstComment, 'I would totally buy this product!');
+    assert.deepEqual(otherComments, ['What is this anyway?!', 'YAYAYAYYA \o/!!!']);
+  });
+
+  it('Get the `productName` and `productPrice` properties from the second object in an Array', () => {
+    const changeMeOnly = [{productName: 'Waterballoons', productPrice: '1 Million', productType: 'Recreation'}, {productName: 'Proxy Clean', productPrice: 'Five 9s', productType: 'Household'}]
+
+    assert.equal(productName, 'Proxy Clean');
+    assert.equal(productPrice, 'Five 9s');
+  });
+});
+
+// Destructuring - Function Arguments
+describe('Destructuring Function arguments', () => {
+  it('Destructure the incoming Object argument', () => {
+
+    function sayHello(doYourWorkHere) {
+      return undefined; // and do work here
+    }
+
+    assert.equal(sayHello({name: 'Chappelle'}), 'Chappelle says, HIYEEEEEEEE!!!');
+  });
+
+  it('...with Arrays as an argument works with destructuring as well (though not as useful, know about this, but if you really do this, `wat!`)', () => {
+
+    function introduceLeadAndTeam(doYourWorkHere) {
+      return undefined;
+    }
+
+    assert.equal(introduceLeadAndTeam(['Natalie', 'Christie', 'Gina']), 'Natalie\'s team consits of these awesome people: Christie, Gina.');
+  });
+});
+
+// Destructuring - Function Arguments - mini boss
+
+
 // Default parameters - basics
 describe('default parameters make function parameters more flexible', () => {
   it('define it using an assignment to the parameter `function(param=1){}`', () => {
