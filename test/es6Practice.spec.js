@@ -353,7 +353,7 @@ describe('Destructuring Function arguments', () => {
   it('...with Arrays as an argument works with destructuring as well (though not as useful, know about this, but if you really do this, `wat!`)', () => {
 
     function introduceLeadAndTeam(doYourWorkHere) {
-      return undefined;
+      return undefined; // and do work here
     }
 
     assert.equal(introduceLeadAndTeam(['Natalie', 'Christie', 'Gina']), 'Natalie\'s team consits of these awesome people: Christie, Gina.');
@@ -361,7 +361,6 @@ describe('Destructuring Function arguments', () => {
 });
 
 // Destructuring - Function Arguments - mini boss
-
 
 // Default parameters - basics
 describe('default parameters make function parameters more flexible', () => {
