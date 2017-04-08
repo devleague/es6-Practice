@@ -318,6 +318,37 @@ describe('destructuring arrays makes shorter code', () => {
   });
 });
 
+// destructuring objects
+//
+// docs: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
+describe('destructure assignment from objects also makes shorter', () => {
+  it('use destructure assignments to "pluck" values by their property name from an object literal', () => {
+    const person = { name: 'Bilbo', surname: 'Fragginz' };
+
+    const {} = person; // only work on this line
+
+    assert.equals(name, 'Bilbo');
+    assert.equals(surname, 'Fragginz');
+  });
+
+  it('...you can still rename your destructuring assignments, re-alias `name` and `surname`', () => {
+    const person = { name: 'Bilbo', surname: 'Fragginz' };
+
+    const { name, surname } = person; // only work on this line, don't delete `name` or `surname`
+
+    assert.equal(hobbitName, 'Bilbo');
+    assert.equal(lastName, 'Fragginz');
+  });
+
+  it('destructuring inception: destructure while descturing and then re-alias it as `favoriteNephew`', () => {
+    const person = { name: 'Bilbo', surname: 'Fragginz', nephew: { name: 'Frodo' } };
+
+    const {} = person; // only work on this line
+
+    assert.deepEqual(favoriteNephew, 'Frodo');
+  });
+});
+
 // Default parameters - basics
 describe('default parameters make function parameters more flexible', () => {
   it('define it using an assignment to the parameter `function(param=1){}`', function() {
