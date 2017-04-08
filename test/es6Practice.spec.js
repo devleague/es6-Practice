@@ -360,8 +360,6 @@ describe('Destructuring Function arguments', () => {
   });
 });
 
-// Destructuring - Function Arguments - mini boss
-
 // Default parameters - basics
 describe('default parameters make function parameters more flexible', () => {
   it('define it using an assignment to the parameter `function(param=1){}`', () => {
